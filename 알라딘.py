@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-	from_db = db
+	from_db = db["알라딘"]
 	if from_db:
 		wow = from_db
 	else:
