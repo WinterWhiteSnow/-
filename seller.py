@@ -20,6 +20,10 @@ def seller_check(urls):
 			pass
 		elif seller == "북코리아":
 			pass
+		elif seller == "책창고":
+			pass
+		elif seller == "☆북앤스토리☆":
+			pass
 		else:
 			seller_list.append(i)
 	print(seller_list)		
