@@ -35,7 +35,7 @@ def extract_last_page():
 def scraping():
     last_page=extract_last_page()
     dict_result = []
-    for i in range(1,last_page+1):
+    for i in range(1,last_page//2):
         print(f"알라딘 무협소설 scraping....{i}page")
         new_url = f"https://www.aladin.co.kr/shop/wbrowse.aspx?ItemType=100&ViewRowsCount=24&ViewType=Simple&PublishMonth=0&SortOrder=6&page={i}&UsedShop=0&PublishDay=84&CID=50932&CustReviewRankStart=&CustReviewRankEnd=&CustReviewCountStart=&CustReviewCountEnd=&PriceFilterMin=&PriceFilterMax=5000&SearchOption=&IsDirectDelivery=&QualityType=0&OrgStockStatus=&ShopNoCols=&IsUsedStore=0"
         headers = {'User-Agent':"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36 Edg/92.0.902.84"}
@@ -50,7 +50,7 @@ def scraping():
                 link = a["href"]
                 title_string = a.string
                 price_string = b.string
-                if "완결" in title_string:
+                if "완결" in title_string or "완" in title_string:
                     title_string = title_string
                     price_string = price_string
                     link = link
@@ -103,6 +103,4 @@ def scraping():
                             pass        
     wow = checking_buy(dict_result)
     seller_list = seller_check(wow)
-
     return seller_list
-                       

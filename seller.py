@@ -25,7 +25,6 @@ def seller_check(urls):
 		elif seller == "☆북앤스토리☆":
 			pass
 		else:
-			seller_list.append(i)
-	print(seller_list)		
+			seller_list.append(i)		
 		
 	return seller_list
