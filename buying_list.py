@@ -177,7 +177,6 @@ string_list = """
 [중고-중] 염왕진무 1-10 완결 신무협 김석진 (지은이)
 
 
-
 """
 def title_list():
 	aaa = book_list_split(string_list)
