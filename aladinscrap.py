@@ -33,7 +33,7 @@ def extract_last_page():
     return last_page
 
 def scraping():
-    last_page=extract_last_page()
+    last_page=200
     dict_result = []
     for i in range(1,last_page//2):
         print(f"알라딘 무협소설 scraping....{i}page")

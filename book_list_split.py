@@ -10,5 +10,6 @@ def book_list_split(book_list):
 		if i not in "":
 			b = i[:i.find("1")]	
 			b = b[:b.find("(")]
+			b = b[:b.find("[")]
 			result_list.append(b)
 	return result_list
