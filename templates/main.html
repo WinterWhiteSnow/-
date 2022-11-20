@@ -6,11 +6,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/asdf.css') }}">
 	<title>Document</title>
+	<style>
+		h1 { 
+			text-align: center;
+			font-size: 3em; 
+		}
+	</style>
 </head>
 <body>
 	{%for i in wow%}
 		<div>
-			<span>{{i.title}}  |   {{i.price}}   | <a href={{i.link}} target="_blank">buy!</a></span>
+			<h1>{{i.title}}  |   {{i.price}}   | <a href={{i.link}} target="_blank">buy!</a></h1>
 		</div>
 	{% endfor %}
 </body>

@@ -8,12 +8,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-	wow_db = db
-	if wow_db:
-		wow = wow_db["알라딘"]
-	else:
-		db["알라딘"] = scraping()
-		wow=db["알라딘"]
+	db["알라딘"] = scraping()
+	wow=db["알라딘"]
 	result = sorted(wow, key=lambda potato: potato['price'], reverse=False)	
 	return render_template("main.html",wow=result)
 
