@@ -9,7 +9,7 @@ def checking_buy(before_list):
     buying_title = title_list()
     for i in before_list:
         title = i["title"]
-        print(title)
+        # print(title)
         title = title[:title.find("1")]	
         if "(" in title:
             title = title[:title.find("(")]
@@ -41,7 +41,7 @@ def extract_last_page():
 def scraping():
     last_page=200
     dict_result = []
-    for i in range(1,10):
+    for i in range(1,50):
         print(f"알라딘 무협소설 scraping....{i}page")
         new_url = f"https://www.aladin.co.kr/shop/wbrowse.aspx?ItemType=100&ViewRowsCount=24&ViewType=Simple&PublishMonth=0&SortOrder=6&page={i}&UsedShop=0&PublishDay=84&PriceFilterMax=5000&CID=50932&SearchOption=&CustReviewRankStart=&CustReviewRankEnd=&CustReviewCountStart=&CustReviewCountEnd=&PriceFilterMin=&QualityType=0&OrgStockStatus="
         # print(new_url)
