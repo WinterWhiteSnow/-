@@ -13,5 +13,7 @@ def book_list_split(book_list):
 				b = b[:b.find("(")]
 			if "[" in b:
 				b = b[:b.find("[")]
+			if "{" in b:
+				b = b[:b.find("{")]
 			result_list.append(b)
 	return result_list
