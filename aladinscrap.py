@@ -9,14 +9,37 @@ def checking_buy(before_list):
     buying_title = title_list()
     for i in before_list:
         title = i["title"]
-        # print(title)
-        title = title[:title.find("1")]	
+        # print("start!",title)
+        if "1" in title:
+            title = title[:title.find("1")+1]
+        # print("first",title)	
         if "(" in title:
-            title = title[:title.find("(")]
+            title = title[:title.find("(")+1]
+        if "{" in title:
+            title = title[:title.find("{")+1]
+        # print("seoncd",title)
         if "[" in title:
-            title = title[:title.find("[")]
+            title = title[:title.find("[")+1]
+        if ")" in title:
+            titel = title[title.find(")")+1:]
+        if "]" in title:
+            titel = title[title.find("]")+1:]
+        if "}" in title:
+            titel = title[title.find("}")+1:]
+        # print("third",title)
+        # title = title.replace(" ","")
+        # print("mid",title)
+        new_title = ""
+        for t in title:
+            if ord("가")<=ord(t)<=ord("힣"):
+                new_title+=t
+        for d in ".!@#$%^&*()_+|☆★}※{[]":
+            new_title=new_title.replace(d,"")
+        title = new_title
+        # print("what:",new_title)
         if title in buying_title:
             continue
+        # print("title:",title)
         result_result_list.append(i)
     return  result_result_list       
 
@@ -39,9 +62,9 @@ def extract_last_page():
     return last_page
 
 def scraping():
-    last_page=200
+    last_page=extract_last_page()
     dict_result = []
-    for i in range(1,50):
+    for i in range(1,last_page):
         print(f"알라딘 무협소설 scraping....{i}page")
         new_url = f"https://www.aladin.co.kr/shop/wbrowse.aspx?ItemType=100&ViewRowsCount=24&ViewType=Simple&PublishMonth=0&SortOrder=6&page={i}&UsedShop=0&PublishDay=84&PriceFilterMax=5000&CID=50932&SearchOption=&CustReviewRankStart=&CustReviewRankEnd=&CustReviewCountStart=&CustReviewCountEnd=&PriceFilterMin=&QualityType=0&OrgStockStatus="
         # print(new_url)

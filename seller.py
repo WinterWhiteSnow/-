@@ -15,6 +15,7 @@ def seller_check(urls):
 		parent_tag = soup.find("div",{"class":"Ere_prod_bookwrap"}).find("div",{"class":"Ere_prod_Binfowrap"})
 		child_tag = parent_tag.find("div",{"class":"info"}).find("div",{"style":"margin-top:-25px;"})
 		seller = child_tag.find("div",{"class":"Ritem"}).find("a").string
+		seller = seller.replace(" ","")
 		if seller == "tkdjqdlsdlek":
 			continue
 		if seller == "도쿠가와":
@@ -26,6 +27,8 @@ def seller_check(urls):
 		if seller == "책창고":
 			continue
 		if seller == "☆북앤스토리☆":
+			continue
+		if seller == "호계동책방":
 			continue
 		seller_list.append(i)	
 	return seller_list
