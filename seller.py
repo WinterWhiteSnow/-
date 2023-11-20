@@ -14,7 +14,8 @@ def seller_check(urls):
 		# print("수프",soup)
 		parent_tag = soup.find("div",{"class":"Ere_prod_bookwrap"}).find("div",{"class":"Ere_prod_Binfowrap"})
 		child_tag = parent_tag.find("div",{"class":"info"}).find("div",{"style":"margin-top:-25px;"})
-		seller = child_tag.find("div",{"class":"Ritem"}).find("a").string
+		seller = child_tag.find_all("div",{"class":"Ritem"})[1].find("a").text
+		# print(f"현재 이름 : {seller}")
 		seller = seller.replace(" ","")
 		if seller == "tkdjqdlsdlek":
 			continue

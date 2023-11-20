@@ -41,7 +41,7 @@ def checking_buy(before_list):
             continue
         # print("title:",title)
         result_result_list.append(i)
-    return  result_result_list       
+    return result_result_list       
 
 def extract_last_page():
     url = "https://www.aladin.co.kr/shop/wbrowse.aspx?ItemType=100&ViewRowsCount=24&ViewType=Simple&PublishMonth=0&SortOrder=6&page=2&UsedShop=0&PublishDay=84&CID=50932&CustReviewRankStart=&CustReviewRankEnd=&CustReviewCountStart=&CustReviewCountEnd=&PriceFilterMin=&PriceFilterMax=5000&SearchOption=&IsDirectDelivery=&QualityType=0&OrgStockStatus=&ShopNoCols=&IsUsedStore=0"
@@ -63,6 +63,7 @@ def extract_last_page():
 
 def scraping():
     last_page=extract_last_page()
+    # last_page=50
     dict_result = []
     for i in range(1,last_page):
         print(f"알라딘 무협소설 scraping....{i}page")
@@ -83,8 +84,10 @@ def scraping():
                 c = c.find("table",{"cellpadding":"0"}).find("div",{"style":"position:relative;text-align:center;"}).find("img")["src"]
                 if "19book" in c:
                     continue
-                title_string = a.string.replace(" ","")
+                title_string = a.string.replace(" ","").replace(".","")
                 price_string = b.string.replace(" ","")
+                # print("현재")
+                # print(f"title:{title_string} price:{price_string} check:{c}")
                 if "완결" in title_string or "완" in title_string:
                     title_string = title_string
                     price_string = price_string
@@ -140,7 +143,8 @@ def scraping():
                     #             else:   
                     #                 pass
                     #     except:
-                    #         pass          
+                    #         pass  
+       
     wow = checking_buy(dict_result)
     seller_list = seller_check(wow)
     return seller_list

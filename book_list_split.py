@@ -4,7 +4,7 @@ def book_list_split(book_list):
 	list_list = []
 	result_list = []
 	for i in string_list:
-		a = i.replace(" ","")
+		a = i.replace(" ","").replace(".","")
 		list_list.append(a)
 	for i in list_list:
 		if i != "":
@@ -29,6 +29,9 @@ def book_list_split(book_list):
 				b = b[b.find("]")+1:]
 			if "}" in b:
 				b = b[b.find("}")+1:]
+			if "." in b:
+				b = b[b.find(".")+1:]
+
     
 			for d in ".!@#$%^&*()_+|☆★}※{[]":
 				b=b.replace(d,"")
